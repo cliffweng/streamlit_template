@@ -1,21 +1,28 @@
 # Streamlit Template
 
+Last updated in June 2024
 
 ## Clone this repo
-Clone this repo to your local machine, and replace all the 'cliffweng' with your name, and 'streamlit-template' with your repo name.
+Clone this repo to your local machine, and replace all the 'wengs' with your name, and 'streamlit-template' with your repo name.
 
 ## Development with Docker
 Run the following commands to build the dev docker image and run the container that use local files throughout development process:
 ```
-docker build -t cliffweng/streamlit-template .
-docker run -p 8501:8501 -v %cd%:/home/streamlit cliffweng/streamlit-template
+stpodman build -t st .
+podman run -p 8501:8501 -p 8888:8888 --name st -v %cd%:/home/streamlit st
+```
+### Jupyter
+run the following command in another prompt to start a Jupyter if you want to use Jupyter to debug
+```
+podman exec st pip install jupyterlab
+podman exec st jupyter lab --allow-root
 ```
 
 ## Package with Docker
 Run the following command to build the production docker image and test run it:
 ```
-docker build -t cliffweng/streamlit-template .
-docker run -p 8501:8501 cliffweng/streamlit-template:latest  # can be launched anywhere, no need to mount local files
+docker build -t wengs/streamlit-template .
+docker run -p 8501:8501 wengs/streamlit-template:latest  # can be launched anywhere, no need to mount local files
 ```
 Then visit [localhost:8501](http://localhost:8501/)
 
