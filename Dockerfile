@@ -19,4 +19,4 @@ RUN pip install -r requirements.txt
 # COPY . /home/streamlit
 
 ENTRYPOINT [ "streamlit", "run"]
-CMD ["streamlit_app.py"]
+CMD ["Main.py"]
